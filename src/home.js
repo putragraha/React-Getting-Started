@@ -1,14 +1,23 @@
-const handleClick = (event) => console.log("Hello world", event)
-
-const handleClickWithArgument = (name, event) => console.log("Hello " + name, event.target)
+import { useState } from "react";
 
 const Home = () => {
+    
+    const [name, setName] = useState("Initial")
+
+    const [age, setAge] = useState(25)
+
+    const handleClick = (event) => {
+        setName("Updated")
+        setAge(30)
+    }
+        
     return ( 
         <div className="home">
             <h2>Homepage</h2>
             <br />
+            <p>{name} is {age} years old</p>
+            <br />
             <button onClick={handleClick}>Click</button>
-            <button onClick={(event) => handleClickWithArgument("Vention", event)}>Click with Argument</button>
         </div>
      );
 }
