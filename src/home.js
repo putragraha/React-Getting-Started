@@ -9,9 +9,16 @@ const Home = () => {
         { title: 'Web dev top tips', body: 'lorem ipsum...', author: 'mario', id: 3 }
     ])
 
+    const deleteBlog = (id) => {
+        console.log(id)
+        setBlogs(
+            blogs.filter(blog => blog.id !== id)
+        )
+    }
+
     return ( 
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs"/>
+            <BlogList blogs={blogs} title="All Blogs" onDeleteClick={deleteBlog}/>
         </div>
      );
 }
